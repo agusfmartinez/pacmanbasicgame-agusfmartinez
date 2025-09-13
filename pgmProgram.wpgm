@@ -8,28 +8,47 @@ program pacmanGame {
 	// límites del juego
 	game.width(14)
 	game.height(8)
+
+	const rivales = [fantasmaRojo, fantasmaAzul]
 	
 	// fondo
 	game.boardGround("pacmanBackground.jpg")
 	
 	// personaje principal
-	game.addVisualCharacter(pacman)
+	game.addVisual(pacman)
+
+	keyboard.w().onPressDo({pacman.moverHaciaArriba()})
+	keyboard.s().onPressDo({pacman.moverHaciaAbajo()})
+	keyboard.a().onPressDo({pacman.moverHaciaIzquierda()})
+	keyboard.d().onPressDo({pacman.moverHaciaDerecha()})
 	
+	game.addVisual(fantasmaRojo)
+	game.addVisual(fantasmaAzul)
+
+	rivales.forEach({
+		rival => game.whenCollideDo(rival, {
+			personaje =>
+			personaje.perderVida()
+			game.say(personaje, "Me quedan " + personaje.vidas() + " vidas.")
+
+		})
+	})
+
 
 	// rivales
-	const rivales = [new Rival(numero = 1), new Rival(numero = 2)]
+	// const rivales = [new Rival(numero = 1), new Rival(numero = 2)]
 	
-	rivales.forEach { rival => 
-		game.addVisual(rival)
-		game.whenCollideDo(rival, { personaje =>
-			personaje.perderVida()
-			game.say(pacman, "Ups! Perdí una vida")
-			if (personaje.juegoTerminado()) {
-				game.say(pacman, "Se me terminaron las vidas!!!")
-				game.onTick(5000, "gameEnd", { game.stop() })
-			}
-		})
-	}
+	// rivales.forEach { rival => 
+	// 	game.addVisual(rival)
+	// 	game.whenCollideDo(rival, { personaje =>
+	// 		personaje.perderVida()
+	// 		game.say(pacman, "Ups! Perdí una vida")
+	// 		if (personaje.juegoTerminado()) {
+	// 			game.say(pacman, "Se me terminaron las vidas!!!")
+	// 			game.onTick(5000, "gameEnd", { game.stop() })
+	// 		}
+	// 	})
+	// }
 	
 	// que arranque el juego!
 	game.start()
