@@ -576,3 +576,6 @@
 {"level":"info","message":"⌛ Validating pgmProgram.wpgm","timeElapsed":137,"timestamp":"2025-09-13T14:51:23.817Z"}
 {"level":"info","message":"⌛ Validating pgmProgram.wpgm","timeElapsed":105,"timestamp":"2025-09-13T14:51:45.465Z"}
 {"level":"info","message":"⌛ Validating pgmProgram.wpgm","timeElapsed":102,"timestamp":"2025-09-13T14:53:05.337Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":295,"timestamp":"2025-09-13T15:02:29.592Z"}
+{"level":"info","message":"⌛ Validating pgmProgram.wpgm","timeElapsed":371,"timestamp":"2025-09-13T15:02:29.965Z"}
+{"level":"info","message":"⌛ Validating example.wlk","timeElapsed":368,"timestamp":"2025-09-13T15:02:30.337Z"}
